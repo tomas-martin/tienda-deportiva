@@ -1,9 +1,7 @@
 {
   "version": 2,
-  "framework": null,
   "buildCommand": "npm run build",
-  "installCommand": "npm install",
-  "outputDirectory": "dist/tienda-deportiva",
+  "outputDirectory": "dist/tienda-deportiva/browser",
   "routes": [
     {
       "src": "/(.*)",
