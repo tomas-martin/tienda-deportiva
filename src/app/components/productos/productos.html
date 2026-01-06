@@ -1,0 +1,9 @@
+<section class="productos">
+  <h2>Productos Destacados</h2>
+
+  <div class="card" *ngFor="let producto of productos">
+    <h3>{{ producto.nombre }}</h3>
+    <p>$ {{ producto.precio }}</p>
+    <button>Comprar</button>
+  </div>
+</section>
