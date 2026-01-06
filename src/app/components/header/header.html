@@ -1,8 +1,48 @@
 <header class="header">
-  <h1>SportStyle</h1>
-  <nav>
-    <a href="#">Inicio</a>
-    <a href="#">Productos</a>
-    <a href="#">Contacto</a>
-  </nav>
+  <div class="header-content">
+    <div class="logo">
+      <span class="logo-icon">⚡</span>
+      <h1>SPORTPRO</h1>
+    </div>
+    
+    <nav class="nav-menu">
+      <a href="#" class="nav-link active">Inicio</a>
+      <a href="#productos" class="nav-link">Productos</a>
+      <a href="#categorias" class="nav-link">Categorías</a>
+      <a href="#ofertas" class="nav-link">Ofertas</a>
+      <a href="#contacto" class="nav-link">Contacto</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="search-btn" aria-label="Buscar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </button>
+      
+      <button class="cart-btn" aria-label="Carrito">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        <span class="cart-count">0</span>
+      </button>
+
+      <button class="menu-toggle" (click)="toggleMenu()" aria-label="Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" [class.active]="menuOpen">
+    <a href="#" class="mobile-link">Inicio</a>
+    <a href="#productos" class="mobile-link">Productos</a>
+    <a href="#categorias" class="mobile-link">Categorías</a>
+    <a href="#ofertas" class="mobile-link">Ofertas</a>
+    <a href="#contacto" class="mobile-link">Contacto</a>
+  </div>
 </header>
