@@ -47,15 +47,39 @@
   </div>
 </section>
 
-<!-- Productos -->
-<section class="productos" id="productos">
+<!-- ========================================== -->
+<!-- NUEVO: Indicador de carga -->
+<!-- ========================================== -->
+<div *ngIf="cargando" class="loading-container">
+  <div class="loading-spinner"></div>
+  <p>Cargando productos...</p>
+</div>
+
+<!-- ========================================== -->
+<!-- NUEVO: Mensaje de error -->
+<!-- ========================================== -->
+<div *ngIf="error && !cargando" class="error-container">
+  <p>{{ error }}</p>
+  <button class="btn-primary" (click)="cargarProductos()">Reintentar</button>
+</div>
+
+<!-- ========================================== -->
+<!-- Productos (solo se muestra si no hay error ni está cargando) -->
+<!-- ========================================== -->
+<section class="productos" id="productos" *ngIf="!cargando && !error">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">Productos Destacados</h2>
       <p class="section-subtitle">Descubre nuestra selección premium de equipamiento deportivo</p>
     </div>
 
-    <div class="productos-grid">
+    <!-- Mensaje cuando no hay productos -->
+    <div *ngIf="productosFiltrados.length === 0" class="no-products">
+      <p>No se encontraron productos en esta categoría</p>
+    </div>
+
+    <!-- Grid de productos -->
+    <div class="productos-grid" *ngIf="productosFiltrados.length > 0">
       <div class="product-card" *ngFor="let producto of productosFiltrados">
         <div class="product-badge" *ngIf="producto.descuento">
           -{{ producto.descuento }}%
@@ -80,8 +104,8 @@
           <div class="product-footer">
             <div class="product-price">
               <span class="price-current">${{ producto.precio | number }}</span>
-              <span class="price-old" *ngIf="producto.precioAnterior">
-                ${{ producto.precioAnterior | number }}
+              <span class="price-old" *ngIf="producto.precio_anterior">
+                ${{ producto.precio_anterior | number }}
               </span>
             </div>
             
@@ -100,7 +124,7 @@
 </section>
 
 <!-- Categorías -->
-<section class="categorias-section" id="categorias">
+<section class="categorias-section" id="categorias" *ngIf="!cargando">
   <div class="container">
     <h2 class="section-title">Explora por Categoría</h2>
     <div class="categorias-grid">
@@ -114,7 +138,7 @@
 </section>
 
 <!-- Features -->
-<section class="features-section">
+<section class="features-section" *ngIf="!cargando">
   <div class="container">
     <div class="features-grid">
       <div class="feature-card">

@@ -23,8 +23,8 @@ interface CategoriaDestacada {
   selector: 'app-productos',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './productos.html',
-  styleUrls: ['./productos.css'],
+  templateUrl: './productos.component.html',
+  styleUrls: ['./productos.component.css'],
 })
 export class ProductosComponent implements OnInit {
   productos: Producto[] = [
@@ -183,10 +183,7 @@ export class ProductosComponent implements OnInit {
   }
 
   agregarAlCarrito(producto: Producto): void {
-    // Aquí conectarás con tu servicio de carrito
     console.log('Producto agregado al carrito:', producto);
-    
-    // Ejemplo de notificación visual (puedes implementar un toast/snackbar)
     alert(`${producto.nombre} agregado al carrito!`);
   }
 }
