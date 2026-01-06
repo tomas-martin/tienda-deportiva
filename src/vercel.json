@@ -1,21 +1,11 @@
 {
-  "version": 2,
   "buildCommand": "npm run build",
-  "outputDirectory": "dist/tienda-deportiva",
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "routes": [
+  "outputDirectory": "dist/tienda-deportiva/browser",
+  "framework": null,
+  "rewrites": [
     {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot))",
-      "dest": "/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
